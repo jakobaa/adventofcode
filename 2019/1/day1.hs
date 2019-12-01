@@ -1,5 +1,3 @@
-import Data.Maybe
-import Text.Read
 type Mass = Int
 type Fuel = Int
 
