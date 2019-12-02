@@ -10,16 +10,15 @@ type List = [Int]
 parseInput :: String -> IO List
 parseInput file = readFile file >>= return . map read . endByOneOf ",\n"
 
-fixInput :: List -> List
-fixInput (op:i1:i2:xs) = op:12:2:xs
+fixInput :: List -> (Int, Int) -> List
+fixInput (op:i1:i2:xs) (verb,noun) = op:verb:noun:xs
 
 main :: IO ()
 main = do input <- parseInput "input.txt"
-          print input
-          let res = doInput 0 . fixInput $ input
-          print res
-          --let res2 = doInput 4 res
-          --print res2
+          let allInputs =  [doInput 0 . fixInput input $ (x,y) |  x <- [0..99], y <- [0..99]]
+          print . head $ filter (\a -> head a == 19690720) allInputs
+
+
 
 doInput :: Index -> List ->  List
 doInput start list = case list!!start of
