@@ -1,6 +1,3 @@
-import System.IO.Unsafe
-import Control.Monad.Identity
-import Control.Monad.Writer
 import Control.Monad.State
 import Text.ParserCombinators.ReadP hiding (between, get)
 import Data.Char
