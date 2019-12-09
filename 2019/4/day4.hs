@@ -1,3 +1,5 @@
+module Day4 (toList) where
+
 --import ListSetOps
 import Data.List
 input = [x | x <- [359282..820401], let list = toList x in and [checkDecr list, two_adjacent list]]
